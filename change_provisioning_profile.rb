@@ -1,9 +1,10 @@
 require 'xcodeproj'
-project_path = '/Users/masahiroaoki/Developer/artisan_app/ios/Runner.xcodeproj'
-project = Xcodeproj::Project.open(project_path)
 
-development_team = ARGV[0]
-provisioning_profile_specifier = ARGV[1]
+project_path = ARGV[0]
+development_team = ARGV[1]
+provisioning_profile_specifier = ARGV[2]
+
+project = Xcodeproj::Project.open(project_path)
 
 project.targets.each do |target|
   target.build_configurations.each do |config|
